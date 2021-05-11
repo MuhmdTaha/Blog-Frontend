@@ -4,14 +4,13 @@
     <div class="container row">
 
       <!-- profile photo and follow button -->
-      <div class="img col-3">
-
+      <div class="img col-4">
             <img [src]="'http://localhost:3000/' + user.photo"
               class="m-3 mt-3 rounded-circle col-6 mw-10"
             />
 
+        <div class="user-name">{{ user.Fname }} {{ user.Lname }}</div>
 
-        <span class="user-name">{{ user.Fname }} {{ user.Lname }}</span><br />
         <button class="btn btn-outline-success  "
           id="follow-btn" *ngIf="follow" type="submit"
           (click)="followMe()">{{ btn }}</button>
