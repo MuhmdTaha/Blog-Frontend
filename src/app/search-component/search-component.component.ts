@@ -13,40 +13,16 @@ import { RegisterService } from '../service/register.service';
 export class SearchComponentComponent implements OnInit {
   users: Register[];
   blogs: Blog[];
-  constructor(public ar: ActivatedRoute, public blogservice: BlogService, public userService: RegisterService) { }
+  constructor(public ar: ActivatedRoute,
+              public blogservice: BlogService,
+              public userService: RegisterService
+              ){ }
 
   ngOnInit(): void {
     let searched: string = "";
 
-    this.ar.params.subscribe(
-      a => {
-        searched = a['searched']
-      }
-    )
-    this.blogservice.searchBlog(searched).subscribe(
-      a => {
-        this.blogs = a;
-      }
-    )
-    this.userService.searchUser(searched).subscribe(
-      a => {
-        this.users = a;
-      }
-    )
-   // let username: string = "";
-    // this.userService.getUserData().subscribe(
-      // a => {
-        // for (let i = 0; i < this.users.length; i++) {
-        // a.following.findIndex(value => {
-        // if (value == this.users[i].username) {
-        // this.btn = "unfollow";
-        // this.user = a;
-        //  //console.log(this.follow);
-        // }
-        // })
-      // })
-
-
-
+    this.ar.params.subscribe( a => {searched = a['searched']})
+    this.blogservice.searchBlog(searched).subscribe( a => {this.blogs = a;})
+    this.userService.searchUser(searched).subscribe( a => {this.users = a;})
   }
 }
