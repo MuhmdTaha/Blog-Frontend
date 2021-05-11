@@ -1,0 +1,43 @@
+#friend-card {
+  margin-top: 10px;
+  background-color: #fafafa;
+  padding: 8px;
+  box-shadow: 1px 1px 6px 0px grey;
+}
+#btn-foll {
+  float: right;
+  margin-right: -20px;
+}
+#foll {
+  margin-top: -48px;
+  margin-left: 72%;
+}
+
+#follow-btn {
+  position: relative;
+  width: 200px;
+  margin-top: 20px;
+
+}
+.user-name {
+  font-weight: bold;
+  font-size: 20px;
+}
+#my-modal-content {
+  background-color: #f8f9fa;
+}
+.comments-number {
+  color: red;
+}
+.title{
+  position: relative;
+  margin-top: 20px;
+  width: 400px;
+}
+.title p{
+  margin-left: -200px;
+  font-size: 18px;
+  font-family: cursive;
+  font-style: italic;
+
+}

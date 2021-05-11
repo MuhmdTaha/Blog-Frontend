@@ -1,0 +1,50 @@
+
+<div class="title">
+  <h2>Blogzy</h2>
+  <p>𝓮𝓷𝓻𝓲𝓬𝓱 𝔂𝓸𝓾𝓻 𝓴𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮</p>
+</div>
+<div class="main-wrapper">
+  <div class="intro-image">
+    <img src="https://i.pinimg.com/564x/33/68/9e/33689e4a1154d05c8fe7581a21d8838d.jpg" alt="" srcset="">
+
+
+
+
+
+</div>
+
+<div class="container text-center" id="register-form">
+    <form #user=ngForm (ngSubmit)="onSubmit(user.value)" novalidate>
+        <!-- *ngIf="!submitted" -->
+        <div class="form-group">
+            <!-- {{user.value|json}}<br /> -->
+            <label for="Fname">Frist Name: </label>
+            <input type="text" required name="Fname" id="Fname" ngModel class="form-control" #Fname="ngModel"
+                [class.is-invalid]="Fname.invalid && Fname.touched" placeholder="Enter your frist name">
+            <label for="Lname">Last Name: </label>
+            <input type="text" required name="Lname" id="Lname" ngModel class="form-control" #Lname="ngModel"
+                [class.is-invalid]="Lname.invalid && Lname.touched" placeholder="Enter your last name">
+            <label for="username">User Name: </label>
+            <input type="text" required name="username" id="username" ngModel
+                [class.is-invalid]="username.invalid && username.touched" class="form-control" #username="ngModel"
+                placeholder="Enter your user name">
+            <label for="password">Password: </label>
+            <input type="password" required name="password" id="password" ngModel class="form-control"
+                #password="ngModel" [class.is-invalid]="password.invalid && password.touched"
+                placeholder="Enter your password">
+            <label for="email">Email: </label>
+            <input type="email" required name="email" id="email" ngModel class="form-control" #email="ngModel"
+                [class.is-invalid]="email.invalid && email.touched" placeholder="Enter your E-mail">
+            <label for="dob">Date of Brith: </label>
+            <input type="date" required name="dob" id="dob" ngModel class="form-control" #dob="ngModel"
+                [class.is-invalid]="dob.invalid && dob.touched" placeholder="Enter your date of birth">
+
+
+        </div>
+        <button type="submit" [disabled]="user.form.invalid" id="submit" class="btn btn-danger">Submit</button>
+    </form>
+    <div class="login">
+        <span>Already Registered? you can -> <a routerLink="/login">login</a></span>
+    </div>
+
+</div>

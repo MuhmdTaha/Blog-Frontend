@@ -1,0 +1,39 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand">Blogzy</a>
+  <form class="form-inline">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="button" routerLink="/login">Login</button>
+    &nbsp;&nbsp;&nbsp;
+    <button class="btn btn-outline-success my-2 my-sm-0" type="button" routerLink="/register">Sign Up</button>
+
+  </form>
+</nav>
+
+<div class="col-6 container text-center mt-3">
+  <div class="container col-12 mt-3">
+      <div *ngFor="let item of blogs" class="row">
+
+          <div class="card mb-3 col-12 ">
+              <div class="card-body p-2 text-left">
+                  <div class="row">
+                      <div class="col-8">
+                         <div class="row">
+                          <div class="col-9 align-self-center">
+                              <a [href]="['/profile/'+item.username]" class="card-link">{{item.name}}</a>
+                              <p class="card-subtitle mb-2 mt-1 text-muted">Shared publicly - {{item.createdAt | date:'MMMM dd yyyy'}}</p><br />
+                          </div>
+                         </div>
+                      </div>
+                  </div>
+                  <h5 class="card-title text-center">{{item.title}}</h5>
+                  <p class="card-text text-center"><span *ngFor="let t of item.tags">{{t}}</span><br /></p>
+                  <p class="card-text text-center">{{item.body}}</p>
+              </div>
+              <img class="card-img-bottom" [src]="'http://localhost:3000/'+item.photo" alt="Card image cap">
+              <div>
+              </div>
+          </div>
+          <hr />
+      </div>
+</div>
+
+<router-outlet></router-outlet>

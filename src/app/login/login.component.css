@@ -1,0 +1,35 @@
+
+.main-wrapper {
+  border: 2px solid #6c757d33;
+  display: flex;
+  flex-direction: row;
+  margin: 5% 12%;
+  height: 40%;
+
+}
+.title{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 30px;
+  color: #343a40;
+  margin-bottom: -50px;
+}h2{
+  font-size: larger;
+  color: #dc3545;
+}
+#login-form {
+  position: relative;
+  margin-top: 20%;
+  width: 500px;
+}
+img {
+  width: 700px;
+  height: fit-content;
+}
+
+.register {
+  margin-top: 30px;
+}
+#error-login{
+  color: rebeccapurple;
+}

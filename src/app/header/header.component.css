@@ -1,0 +1,12 @@
+#my-nav {
+  background-color: #6c757d1f;
+}
+ul,
+li {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+p {
+  text-align: center;
+}

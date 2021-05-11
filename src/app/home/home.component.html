@@ -1,0 +1,92 @@
+<app-header></app-header>
+<div class="col-6 container text-center mt-3">
+    <div class="col-6">
+        <div #addBlog class="row">
+            <!-- add blog -->
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#newBlog">Add Blog
+                +</button>
+            <div id="newBlog" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content" id = "my-modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">New Blog</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" name="title" id="title" class="form-control" required
+                                    [(ngModel)]="newBlog.title">
+                                <label for="photo">Photo</label>
+                                <input type="file" name="photo" id="photo" class="form-control"
+                                    [(ngModel)]="newBlog.photo">
+                                <label for="tags">Tags</label>
+                                <input type="text" name="tags" id="tags" class="form-control"
+                                    [(ngModel)]="newBlog.tags">
+                                <label for="body">Body</label>
+                                <textarea type="text" name="body" id="body" class="form-control" required
+                                    [(ngModel)]="newBlog.body"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <a href="/home" action="/profile" class="btn close col-6" (click)="post()">Done</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container col-12 mt-3">
+        <div *ngFor="let item of blogs" class="row">
+            <!-- <a routerLink="/blog">{{item.auther}}</a><br/> -->
+            <div class="card mb-3 col-12 ">
+                <div class="card-body p-2 text-left">
+                    <div class="row">
+                        <div class="col-8">
+                           <div class="row">
+                            <div class="col-9 align-self-center">
+                                <a [href]="['/profile/'+item.username]" class="card-link">{{item.name}}</a>
+                                <p class="card-subtitle mb-2 mt-1 text-muted">Shared publicly - {{item.createdAt | date:'MMMM dd yyyy'}}</p><br />
+                            </div>
+                           </div>
+                        </div>
+                    </div>
+                    <h5 class="card-title text-center">{{item.title}}</h5>
+                    <p class="card-text text-center"><span *ngFor="let t of item.tags">{{t}}</span><br /></p>
+                    <p class="card-text text-center">{{item.body}}</p>
+                </div>
+                <img class="card-img-bottom" [src]="'http://localhost:3000/'+item.photo" alt="Card image cap">
+                <div>
+                    <ngb-accordion #acc="ngbAccordion" class="col-md-4 text-right" style="margin-right: 15px;">
+                        <ngb-panel [title]="[item.comments.length +' Comments']">
+                            <span>{{item.comments.length}}</span> Comments
+                            <ng-template ngbPanelContent>
+                                <div class="card text-center mb-3 p-0" width="100%" *ngFor="let c of item.comments"
+                                    style="background-color:  rgb(226, 226, 226);">
+                                        <div class="card-body col-12 m-2 p-1 text-left">
+                                            <a [href]="['/profile/'+c.commenter]" class="card-title profile text-left">{{c.commenterName}}</a>
+                                            <p class="card-subtitle mb-2 mt-1 text-muted text-left">Commented At - {{c.dop | date:'MMMM dd yyyy'}}</p><br />
+                                            <p class="card-text text-justify">{{c.body}}</p>
+                                        </div>
+                                </div>
+                                <div class="col-md-12"><input type="text" width="100%" name="Comment" class="commentinput"
+                                        placeholder="Write a comment....." #addcomment>
+                                    <input type="button" value="send" (click)="addComment(item._id,addcomment.value)">
+                                </div>
+                            </ng-template>
+
+                        </ngb-panel>
+
+                    </ngb-accordion>
+                </div>
+            </div>
+            <hr />
+        </div>
+
+</div>

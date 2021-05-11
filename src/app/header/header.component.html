@@ -1,0 +1,16 @@
+<nav class="navbar navbar-light justify-content-between" id = "my-nav">
+
+    <a routerLink="/home" class="navbar-brand">Blogzy</a>
+    <a class="navbar-brand" routerLink="/home">Home</a>
+    <a class="navbar-brand" routerLink="/profile">My Profile</a>
+    <a class="btn" routerLink="/profile/setting">Settings</a>
+    <a class="btn" (click)="logout()" routerLink="/login">Log Out</a>
+
+  <form class="form-inline" action="/search">
+    <input class="form-control mr-sm-2" name="searchbar" #searched type="search" placeholder="Search"
+      aria-label="Search">
+    <a type="button" class="btn btn-outline-success my-2 my-sm-0" [href]="['/search/'+searched.value]"
+      value="search" (click)="search()">Search</a>
+  </form>
+
+</nav>

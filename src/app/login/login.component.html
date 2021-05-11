@@ -1,0 +1,33 @@
+<div class="title">
+  <h2>Blogzy</h2>
+  <p>𝓮𝓷𝓻𝓲𝓬𝓱 𝔂𝓸𝓾𝓻 𝓴𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮</p>
+</div>
+<div class="main-wrapper">
+  <div class="intro-image">
+    <img src="https://i.pinimg.com/564x/33/68/9e/33689e4a1154d05c8fe7581a21d8838d.jpg" alt="" srcset="">
+
+    <!-- <img src="https://i.pinimg.com/564x/f4/0e/8e/f40e8e85e1055eab246d1fe5753a9a59.jpg" alt="" srcset=""> -->
+  </div>
+
+  <div class="container text-center" id="login-form">
+      <h4 *ngIf="error" id="error-login">{{error}}</h4>
+      <form #user=ngForm (ngSubmit)="onSubmit(user.value)" novalidate>
+          <div class="form-group">
+              <label for="username">Username: </label>
+              <input type="text" required name="username" id="username" ngModel
+                  [class.is-invalid]="username.invalid && username.touched" class="form-control" #username="ngModel"
+                  placeholder="Enter your Username">
+              <small class="text-danger" [class.d-none]="username.valid || username.untouched">required</small><br />
+              <label for="password">Password: </label>
+              <input type="password" required name="password" id="password" ngModel class="form-control"
+                  #password="ngModel" [class.is-invalid]="password.invalid && password.touched"
+                  placeholder="Enter your Password">
+              <small class="text-danger" [class.d-none]="password.valid || password.untouched">required</small><br />
+          </div>
+          <button type="submit" [disabled]="user.form.invalid" id="submit" class="btn btn-danger">Submit</button>
+      </form>
+      <div class="register">
+        <span id="register">Not Registered? you can -> <a routerLink="/register">Register Here</a></span>
+      </div>
+  </div>
+</div>
